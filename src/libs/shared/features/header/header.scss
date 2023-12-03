@@ -1,0 +1,56 @@
+@import 'variables';
+
+.header {border-bottom: 0.8px solid $ternary-color; overflow: hidden;
+  $link-height: 86px;
+
+  &-logo {height: $link-height; margin-right: 60px; font-size: $font-size-h2; font-family: $font-family-primary;
+    line-height: $link-height; text-transform: uppercase;
+  }
+  &-container {display: flex; align-items: center;}
+  &-navigation {display: flex; align-items: center;
+    &-accessory {display: none; align-items: center; justify-content: space-between; margin-bottom: 16px;
+      &-logo {font-size: $font-size-h4; font-family: $font-family-primary; text-transform: uppercase;}
+    }
+    &-items {display: flex; align-items: center; list-style: none; margin: 0; padding: 0;
+      &-link {
+        a {display: inline-block; height: $link-height; padding: 0 16px; font-size: $font-size-h5; line-height: $link-height;}
+      }
+    }
+  }
+  &-toggler {display: none; height: 24px;}
+  &-tools {display: flex; align-items: center; margin-left: auto;
+    &-item {padding-left: 32px;}
+  }
+  
+  $mobile-navigation-width: 400px;
+
+  @media screen and (max-width: $mobile) {
+    &-toggler {display: block;}
+    &-navigation {position: absolute; display: block; width: $mobile-navigation-width; height: 100%; top: 0; right: 0;
+      padding: 40px; transform: translateX($mobile-navigation-width); background-color: $background-basic-color-2;
+      transition: all .3s; box-sizing: border-box; opacity: 0.5;
+
+      &-accessory {display: flex;}
+      &-items {flex-direction: column; align-items: flex-start;
+        &-link {
+          a {font-size: $font-size-p1; height: unset; padding: 16px 0; line-height: 1.2;}
+        }
+      }
+    }
+    &-checkbox:checked {
+      & ~ .header-toggler {position: fixed; width: 100%; height: 100%; backdrop-filter: blur(4px);}
+      & ~ .header-navigation {transition: all .3s; transform: translateX(0); opacity: 1;}
+    }
+  }
+
+  @media screen and (max-width: $mobile-small) {
+    &-logo {font-size: $font-size-h4;}
+    &-tools {
+      &-subscribe {display: none;}
+    }
+  }
+
+  @media screen and (max-width: $mobile-navigation-width) {
+    &-navigation {width: 100%;}
+  }
+}

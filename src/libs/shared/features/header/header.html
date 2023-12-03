@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="container header-container">
+    <input id="header" type="checkbox" hidden class="header-checkbox" #input />
+    <a routerLink="/" class="link link-static header-logo">
+      Pasamonte
+    </a>
+    <nav class="header-navigation">
+      <div class="header-navigation-accessory">
+        <a routerLink="/" class="link link-static header-navigation-accessory-logo">Pasamonte</a>
+        <span (click)="closeMobileMenu()" class="link link-white material-symbols-outlined">close</span>
+      </div>
+      <ul class="header-navigation-items">
+        <li class="header-navigation-items-link">
+          <a routerLink="/" class="link link-primary">Home</a>
+        </li>
+        <li class="header-navigation-items-link">
+          <a routerLink="/blog" class="link link-primary">Blog</a>
+        </li>
+        <li class="header-navigation-items-link">
+          <a routerLink="/about" class="link link-primary">About</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-tools">
+      <span class="material-symbols-outlined link link-white header-tools-item">search</span>
+      <pas-button text="Subscribe" class="header-tools-subscribe header-tools-item">
+        <span class="material-symbols-outlined" accessoryLeft>mail</span>
+      </pas-button>
+      <label for="header" class="header-toggler header-tools-item">
+        <span class="link link-white material-symbols-outlined">menu</span>
+      </label>
+    </div>
+  </div>
+</header>

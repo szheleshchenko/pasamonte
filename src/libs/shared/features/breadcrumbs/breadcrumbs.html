@@ -1,0 +1,9 @@
+@if (breadcrumbs().length) {
+  <div class="breadcrumbs">
+    @for (breadcrumb of breadcrumbs(); track breadcrumb.title; let isLast = $last) {
+      <a [routerLink]="breadcrumb.routerLink" [class.link-static]="!isLast" class="link breadcrumbs-item">
+        {{ breadcrumb.title }}
+      </a>
+    }
+  </div>
+}

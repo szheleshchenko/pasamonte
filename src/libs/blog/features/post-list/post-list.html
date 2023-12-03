@@ -1,0 +1,5 @@
+<div class="post-list">
+  @for (post of posts$ | async; track post.id) {
+    <pas-post [post]="post" />
+  }
+</div>
